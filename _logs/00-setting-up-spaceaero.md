@@ -1,9 +1,10 @@
 ---
 layout: article
-title: "Log 00 — Setting up SpaceAero"
+title: "Log 00: Setting up SpaceAero"
 date: 2026-11-14
-permalink: /logs/00-setting-up-spaceaero/
-summary: "Goals, tools, and safety rules put in place before the first build."
+number: 0
+tags: [planning, setup]
+summary: "Project kickoff: domain secured, site built, and goals defined. First kit, motor, and sensor selection followed in Log 01."
 ---
 
 ## Goals

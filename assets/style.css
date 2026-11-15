@@ -23,7 +23,7 @@
   a:hover{text-decoration-color:var(--ink)}
 
   /* Hero */
-  header.hero{padding:88px 0 56px;text-align:center;position:relative}
+  header.hero{padding:96px 0 64px;text-align:center;position:relative}
   .badge{
     display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
     color:var(--muted);border:none;border-radius:0;
@@ -87,7 +87,7 @@
   article.post{padding:48px 0 32px}
   article.post .meta{font-size:12px;color:var(--muted);letter-spacing:.16em;text-transform:uppercase}
   article.post h1{font-size:clamp(28px,4.6vw,40px);line-height:1.2;font-weight:700;margin:10px 0 28px}
-  article.post .body{font-size:17px}
+  article.post .body{font-size:18px;line-height:1.75;color:#e6e6e6;max-width:700px}
   article.post .body p{margin:0 0 18px}
   article.post .body h2{font-size:24px;letter-spacing:0;text-transform:none;color:var(--ink);margin:34px 0 12px}
   article.post .body h3{font-size:19px;margin:26px 0 10px}

@@ -1,0 +1,24 @@
+# ============================================================
+#  HOMEPAGE TEXT — edit anything in quotes, then Commit changes.
+#  Keep the quotes. Lines starting with # are notes and are ignored.
+# ============================================================
+
+title: "SpaceAero"
+
+tagline: "I design, build and fly model rockets, then check the data against what I predicted. These are my notes."
+
+about_heading: "About"
+about_lead: "SpaceAero is my rocketry project. I started with a basic kit and a small sensor board, and the plan is to work up to bigger rockets that carry their own flight computers."
+about_text: "Every flight is a chance to measure something: altitude, acceleration, stability, recovery. I write down what I expect before each launch, then compare it with what actually happened. Mistakes included."
+
+# The three boxes under "Plan". Add or remove a block (title + text) to change them.
+plan_heading: "Plan"
+plan:
+  - title: "Year 1"
+    text: "Small rockets with onboard data logging. Get reliable at building, flying and recording data."
+  - title: "Year 2"
+    text: "One bigger scratch build, either with a recoverable payload or a glider/drone platform for aerial data."
+  - title: "Compete"
+    text: "Aiming for The American Rocketry Challenge (TARC) and NASA TechRise, and flying with the local CENJARS club (NAR #698)."
+
+footer: "SpaceAero · A student rocketry project by Ron"

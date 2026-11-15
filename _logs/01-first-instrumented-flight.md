@@ -1,9 +1,10 @@
 ---
 layout: article
-title: "Log 01 — My First Instrumented Rocket Flight"
+title: "Log 01: My first instrumented rocket flight"
 date: 2026-11-14
-permalink: /logs/01-first-instrumented-flight/
-summary: "Building an Estes Alpha III with an onboard sensor, simulating it in OpenRocket, and comparing the prediction to real flight data."
+number: 1
+tags: [alpha iii, openrocket, flight data]
+summary: "An Estes Alpha III with an onboard sensor on an A8-3 motor. OpenRocket predicted 312 ft; the real flight reached 287 ft (-8%), with clean, usable sensor data."
 ---
 
 SpaceAero was already underway when Starship Flight 15 achieved the first tower catch of an orbital upper stage on November 14, 2026. Watching that flight reinforced why I started this project: real progress comes from measuring what actually happens and learning from the data.

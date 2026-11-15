@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }} — SpaceAero</title>
+<title>{{ page.title }} | SpaceAero</title>
 <meta name="description" content="{{ page.summary | default: site.description }}">
-<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
   <div class="topbar">
@@ -29,7 +29,7 @@
   </main>
   <footer>
     <div class="wrap">
-      <p>SpaceAero · A student rocketry project by Ron</p>
+      <p>{{ site.data.home.footer }}</p>
     </div>
   </footer>
 </body>

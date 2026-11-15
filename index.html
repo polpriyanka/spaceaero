@@ -1,55 +1,30 @@
 ---
 layout: null
 ---
+{% assign h = site.data.home %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SpaceAero — Student Model Rocketry Build Logs</title>
-<meta name="description" content="SpaceAero: a student-built model rocketry project. Build logs, flight data, and the road to NAR certification.">
-<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+<title>{{ h.title }}</title>
+<meta name="description" content="{{ h.tagline }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body>
 
   <header class="hero">
     <div class="wrap">
-      <span class="badge">Student Rocketry · Est. 2026</span>
-      <h1 class="logo">SpaceAero</h1>
-      <p class="tagline">A high-school rocketry project — designing, building, flying, and logging the data. Open build notes for other student hobbyists.</p>
+      <h1 class="logo">{{ h.title }}</h1>
+      <p class="tagline">{{ h.tagline }}</p>
       <div class="cta">
-        <a class="btn primary" href="#logs">Read the build logs</a>
-        <a class="btn ghost" href="#articles">Articles</a>
-        <a class="btn ghost" href="#mission">The mission</a>
+        <a class="btn primary" href="#articles">Articles</a>
+        <a class="btn" href="#logs">Build logs</a>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-
-    <section id="mission">
-      <h2>The mission</h2>
-      <p class="lead">SpaceAero documents a multi-year journey into model and high-power rocketry — from first kit builds to a scratch-designed vehicle carrying its own flight computer.</p>
-      <p class="muted" style="margin-top:12px">Every flight is a chance to measure something: altitude, acceleration, stability, recovery. The goal isn't just to launch, but to record the data, learn what it says, and share the whole process — successes and failures alike — so other students can skip the mistakes I make first.</p>
-    </section>
-
-    <section id="plan">
-      <h2>The roadmap</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Year 1 — Build &amp; measure</h3>
-          <p>A series of model rockets with onboard data logging, building the experience to pursue NAR certification over time.</p>
-        </div>
-        <div class="card">
-          <h3>Year 2 — Go bigger</h3>
-          <p>One larger project: a scratch build with a recoverable payload, or a glider/drone platform for aerial data.</p>
-        </div>
-        <div class="card">
-          <h3>Compete</h3>
-          <p>Targeting The American Rocketry Challenge (TARC) and NASA TechRise, flying with the local CENJARS club (NAR #698).</p>
-        </div>
-      </div>
-    </section>
 
     <section id="articles">
       <h2>Articles</h2>
@@ -62,41 +37,48 @@ layout: null
         </div>
         {% endfor %}
       {% else %}
-        <p class="muted">The first article is on its way.</p>
+        <p class="muted">Nothing here yet.</p>
       {% endif %}
     </section>
 
     <section id="logs">
       <h2>Build logs</h2>
-
+      {% assign logs = site.logs | sort: "number" %}
+      {% for log in logs %}
       <div class="log">
-        <div class="date">Nov 2026</div>
+        <div class="date">{{ log.date | date: "%b %-d, %Y" }}</div>
         <div>
-          <h3><a href="{{ '/logs/00-setting-up-spaceaero/' | relative_url }}">Log 00 — Setting up SpaceAero</a></h3>
-          <p>Project kickoff: domain secured, site structure created, and goals defined. First kit (Estes Alpha III), motor, and sensor selection followed shortly after and are documented in Log 01.</p>
-          <span class="tag">planning</span>
-          <span class="tag">setup</span>
+          <h3><a href="{{ log.url | relative_url }}">{{ log.title }}</a></h3>
+          {% if log.summary %}<p>{{ log.summary }}</p>{% endif %}
+          {% for tag in log.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
         </div>
       </div>
+      {% endfor %}
+    </section>
 
-      <div class="log">
-        <div class="date">Nov 14, 2026</div>
-        <div>
-          <h3><a href="{{ '/logs/01-first-instrumented-flight/' | relative_url }}">Log 01 — My first instrumented rocket flight</a></h3>
-          <p>An Estes Alpha III with an onboard sensor on an A8-3 motor. OpenRocket predicted 312 ft; the real flight reached 287 ft (–8%), with clean, usable sensor data.</p>
-          <span class="tag">alpha iii</span>
-          <span class="tag">openrocket</span>
-          <span class="tag">flight data</span>
+    <section id="about">
+      <h2>{{ h.about_heading }}</h2>
+      <p class="lead">{{ h.about_lead }}</p>
+      <p class="muted" style="margin-top:12px">{{ h.about_text }}</p>
+    </section>
+
+    <section id="plan">
+      <h2>{{ h.plan_heading }}</h2>
+      <div class="grid">
+        {% for item in h.plan %}
+        <div class="card">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
         </div>
+        {% endfor %}
       </div>
-
     </section>
 
   </main>
 
   <footer>
     <div class="wrap">
-      <p>SpaceAero · A student rocketry project by Ron</p>
+      <p>{{ h.footer }}</p>
       <p style="margin-top:8px">Flying under the <a href="https://www.nar.org/safety-information/model-rocket-safety-code/" target="_blank" rel="noopener">NAR Model Rocket Safety Code</a>.</p>
     </div>
   </footer>

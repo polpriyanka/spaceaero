@@ -1,7 +1,11 @@
 title: SpaceAero
-description: A student rocketry project — build logs, flight data, and articles.
+description: Ron's rocketry project. Build logs, flight data, and articles.
 url: "https://spaceaero.org"
 permalink: /articles/:title/
 markdown: kramdown
+collections:
+  logs:
+    output: true
+    permalink: /logs/:name/
 exclude:
   - README.md
