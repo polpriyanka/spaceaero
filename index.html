@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,81 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SpaceAero — Student Model Rocketry Build Logs</title>
 <meta name="description" content="SpaceAero: a student-built model rocketry project. Build logs, flight data, and the road to NAR certification.">
-<style>
-  :root{
-    --bg:#0a0f1f;
-    --bg2:#111a33;
-    --ink:#eaf0ff;
-    --muted:#9aa7c7;
-    --accent:#ff7a3c;      /* rocket-flame amber */
-    --accent2:#5cc8ff;     /* sky cyan */
-    --card:#141d38;
-    --line:#223056;
-    --maxw:860px;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
-    color:var(--ink);
-    background:
-      radial-gradient(1200px 600px at 70% -10%, #1b2a52 0%, rgba(27,42,82,0) 60%),
-      radial-gradient(900px 500px at 10% 10%, #16224a 0%, rgba(22,34,74,0) 55%),
-      linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
-    background-attachment:fixed;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-  a{color:var(--accent2);text-decoration:none}
-  a:hover{text-decoration:underline}
-
-  /* Hero */
-  header.hero{padding:88px 0 56px;text-align:center;position:relative}
-  .badge{
-    display:inline-block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--accent);border:1px solid var(--line);border-radius:999px;
-    padding:6px 14px;margin-bottom:22px
-  }
-  h1.logo{
-    font-size:clamp(48px,11vw,96px);line-height:.95;font-weight:800;letter-spacing:-.02em;
-    background:linear-gradient(90deg,#fff 0%, #cfe0ff 60%, var(--accent2) 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
-  .tagline{margin-top:18px;font-size:clamp(17px,2.4vw,21px);color:var(--muted);max-width:620px;margin-left:auto;margin-right:auto}
-  .cta{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-  .btn{
-    display:inline-block;padding:12px 22px;border-radius:10px;font-weight:600;font-size:15px;
-    border:1px solid var(--line);color:var(--ink)
-  }
-  .btn.primary{background:var(--accent);color:#1a0d04;border-color:transparent}
-  .btn.primary:hover{text-decoration:none;filter:brightness(1.06)}
-  .btn.ghost:hover{text-decoration:none;border-color:var(--accent2)}
-
-  /* Sections */
-  section{padding:46px 0;border-top:1px solid var(--line)}
-  h2{font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
-  .lead{font-size:18px;color:var(--ink)}
-  .muted{color:var(--muted)}
-
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:8px}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-  .card h3{font-size:16px;margin-bottom:6px}
-  .card p{font-size:14.5px;color:var(--muted)}
-
-  /* Build logs */
-  .log{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
-  .log:last-child{border-bottom:none}
-  .log .date{flex:0 0 96px;font-size:13px;color:var(--muted);padding-top:3px}
-  .log h3{font-size:18px;margin-bottom:6px}
-  .log p{font-size:15px;color:var(--muted)}
-  .tag{display:inline-block;font-size:12px;color:var(--accent2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin-top:10px;margin-right:6px}
-  .soon{opacity:.6}
-
-  footer{padding:42px 0 64px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;text-align:center}
-  .note{max-width:var(--maxw);margin:26px auto 0;padding:14px 18px;border:1px dashed var(--line);border-radius:10px;color:var(--muted);font-size:13px}
-  @media(max-width:560px){.log{flex-direction:column;gap:4px}.log .date{flex-basis:auto}}
-</style>
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 </head>
 <body>
 
@@ -90,6 +19,7 @@
       <p class="tagline">A high-school rocketry project — designing, building, flying, and logging the data. Open build notes for other student hobbyists.</p>
       <div class="cta">
         <a class="btn primary" href="#logs">Read the build logs</a>
+        <a class="btn ghost" href="#articles">Articles</a>
         <a class="btn ghost" href="#mission">The mission</a>
       </div>
     </div>
@@ -119,6 +49,21 @@
           <p>Targeting The American Rocketry Challenge (TARC) and NASA TechRise, flying with the local CENJARS club (NAR #698).</p>
         </div>
       </div>
+    </section>
+
+    <section id="articles">
+      <h2>Articles</h2>
+      {% if site.posts.size > 0 %}
+        {% for post in site.posts %}
+        <div class="article-item">
+          <div class="date">{{ post.date | date: "%B %-d, %Y" }}</div>
+          <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+          {% if post.summary %}<p>{{ post.summary }}</p>{% endif %}
+        </div>
+        {% endfor %}
+      {% else %}
+        <p class="muted">The first article is on its way.</p>
+      {% endif %}
     </section>
 
     <section id="logs">

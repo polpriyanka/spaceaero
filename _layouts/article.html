@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} — SpaceAero</title>
+<meta name="description" content="{{ page.summary | default: site.description }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">SpaceAero</a>
+      <nav>
+        <a href="{{ '/#articles' | relative_url }}">Articles</a>
+        <a href="{{ '/#logs' | relative_url }}">Build logs</a>
+      </nav>
+    </div>
+  </div>
+  <main class="wrap">
+    <article class="post">
+      <div class="meta">{{ page.date | date: "%B %-d, %Y" }} · By {{ page.author | default: "Ron" }}</div>
+      <h1>{{ page.title }}</h1>
+      <div class="body">
+        {{ content }}
+      </div>
+      <a class="back" href="{{ '/#articles' | relative_url }}">← All articles</a>
+    </article>
+  </main>
+  <footer>
+    <div class="wrap">
+      <p>SpaceAero · A student rocketry project by Ron</p>
+    </div>
+  </footer>
+</body>
+</html>
