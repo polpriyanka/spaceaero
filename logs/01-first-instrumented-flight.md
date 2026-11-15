@@ -8,7 +8,7 @@ summary: "Building an Estes Alpha III with an onboard sensor board, simulating i
 
 ## Why I started SpaceAero
 
-In November 2026, SpaceX's Starship Flight 15 made history when the upper stage returned from orbit and was successfully caught by the launch tower. Watching that flight made one idea clear to me: real progress in rocketry comes from measuring what actually happens and learning from the data. That is why I started SpaceAero.
+SpaceAero was already underway when Starship Flight 15 achieved the first tower catch of an orbital upper stage on November 14, 2026. Watching that flight reinforced why I started this project: real progress comes from measuring what actually happens and learning from the data.
 
 SpaceAero is my high-school rocketry project. The goal is to design, build, fly, and log real flight data (altitude, acceleration, and recovery), then share the full process so other students can learn from it too.
 
@@ -94,7 +94,7 @@ On this flight the day was mostly calm, but a very light breeze was present. Com
 
 ## What the data told me
 
-- The peak acceleration of 11.4 g matched the published A8-3 thrust curve, showing the motor performed normally.
+- The peak acceleration of 11.4 g matched the OpenRocket prediction of 11–12 g. However, a hand calculation from the A8-3's peak thrust (roughly 10–11 N on a ~64 g rocket including the motor) suggests something closer to 15 g. Possible causes include sensor filtering, mounting compliance in the foam, or the board's sampling rate missing the true peak. I will investigate this on the next flight.
 - The parachute deployed near apogee and the rocket landed safely.
 - The sensor board survived and produced clean, usable data, which was the main goal of this flight.
 
@@ -106,3 +106,4 @@ For the next flight I will:
 - Work on reducing rail friction.
 - Launch in the lightest wind possible.
 - Extract approximate velocity from the accelerometer data.
+- Check the accelerometer's sampling rate and mounting to explain the lower-than-expected peak acceleration.
