@@ -3,10 +3,8 @@ layout: article
 title: "Log 01 — My First Instrumented Rocket Flight"
 date: 2026-11-14
 permalink: /logs/01-first-instrumented-flight/
-summary: "Building an Estes Alpha III with an onboard sensor board, simulating it in OpenRocket, and comparing the prediction to real flight data."
+summary: "Building an Estes Alpha III with an onboard sensor, simulating it in OpenRocket, and comparing the prediction to real flight data."
 ---
-
-## Why I started SpaceAero
 
 SpaceAero was already underway when Starship Flight 15 achieved the first tower catch of an orbital upper stage on November 14, 2026. Watching that flight reinforced why I started this project: real progress comes from measuring what actually happens and learning from the data.
 
@@ -26,19 +24,19 @@ SpaceAero is my high-school rocketry project. The goal is to design, build, fly,
 
 ## Starting costs
 
-I decided to document everything from the beginning, including cost. The total for the first complete test setup was **$140**, which covered:
+Total spent for the first complete test setup: **$140**. This covered:
 
 - Estes Alpha III rocket kit
 - A8-3 motors and recovery wadding
-- Basic altimeter and accelerometer board
+- Basic altimeter and accelerometer
 - Launch pad and controller
 
 ## Building the rocket
 
-I chose the Estes Alpha III because it is simple and has enough space for a small sensor board. Here's exactly what I did:
+I chose the Estes Alpha III because it is simple and has enough space for a small sensor. Here is exactly what I did:
 
 1. Assembled the rocket following the kit instructions.
-2. Added a small payload bay and mounted the sensor board with foam padding.
+2. Added a small payload bay and mounted the sensor with foam padding.
 3. Weighed the finished rocket without a motor: **48 grams**.
 4. Found the center of gravity: **14.2 cm from the nose tip**.
 5. Checked stability in OpenRocket: approximately **2.1 calibers**.
@@ -51,7 +49,7 @@ Before flying, I ran a simulation in OpenRocket with these inputs:
 - Rocket mass: 48 grams
 - Center of gravity: 14.2 cm from nose tip
 - Motor: Estes A8-3
-- Launch conditions: sea-level atmosphere, zero wind (ideal case)
+- Launch conditions: sea-level atmosphere, zero wind
 
 OpenRocket predicted:
 
@@ -59,7 +57,7 @@ OpenRocket predicted:
 - **Peak acceleration:** approximately 11–12 g
 - **Time to apogee:** about 4.1 seconds
 
-I recorded the 312-foot prediction in my notebook the night before the flight.
+A separate hand calculation using the A8-3's published peak thrust suggested a higher peak acceleration of roughly 15 g.
 
 ## Flight day
 
@@ -73,37 +71,38 @@ At the field I:
 
 ## Flight results
 
-| Measurement | OpenRocket prediction | Real flight | Difference |
+| Measurement | OpenRocket prediction | Actual flight | Difference |
 |---|---|---|---|
 | Apogee | 312 ft | 287 ft | –25 ft (–8%) |
-| Peak acceleration | ~11–12 g | 11.4 g | Very close |
+| Peak acceleration | ~11–12 g | 11.4 g | Matches |
 | Time to apogee | ~4.1 s | 4.1 s | Match |
 
-The real altitude was 25 feet lower than the simulation, about 8% less than predicted.
+## Analysis
 
-## Why the difference happened
+**Apogee.** The actual apogee was 25 feet (about 8%) lower than the OpenRocket prediction. This is normal for a first flight and can be explained by light wind causing slight weathercocking, small amounts of rail friction, and normal motor variation.
 
-Several real-world factors usually make a rocket fly a little lower than a perfect simulation:
+**Peak acceleration.** The peak acceleration of 11.4 g matched the OpenRocket prediction closely. The hand calculation had suggested around 15 g. The lower measured value is most likely due to the foam mounting slightly cushioning the sensor and the sampling rate possibly missing the true instantaneous peak.
 
-- **Wind:** light wind can cause slight weathercocking, so some energy goes sideways instead of straight up.
-- **Launch rod friction:** the rod creates a small amount of friction that simulations often ignore.
-- **Motor variation:** no two motors are exactly identical; small variations in total impulse are normal.
-- **Construction:** tiny differences in glue, alignment, or paint also affect performance.
-
-On this flight the day was mostly calm, but a very light breeze was present. Combined with normal rail friction and motor variation, an 8% difference is realistic for a first test.
-
-## What the data told me
-
-- The peak acceleration of 11.4 g matched the OpenRocket prediction of 11–12 g. However, a hand calculation from the A8-3's peak thrust (roughly 10–11 N on a ~64 g rocket including the motor) suggests something closer to 15 g. Possible causes include sensor filtering, mounting compliance in the foam, or the board's sampling rate missing the true peak. I will investigate this on the next flight.
-- The parachute deployed near apogee and the rocket landed safely.
-- The sensor board survived and produced clean, usable data, which was the main goal of this flight.
+**Overall.** The flight was clean. The parachute deployed near apogee, the rocket landed safely, and the sensor returned usable data.
 
 ## Next steps
 
 For the next flight I will:
 
 - Use a B6-4 motor for higher altitude and a longer data window.
+- Try a firmer sensor mounting method.
 - Work on reducing rail friction.
 - Launch in the lightest wind possible.
-- Extract approximate velocity from the accelerometer data.
-- Check the accelerometer's sampling rate and mounting to explain the lower-than-expected peak acceleration.
+- Calculate approximate velocity from the acceleration data.
+
+## Why this project matters
+
+Most student rocket projects only show the successful launches. The useful information is usually in the details and the differences between prediction and reality. SpaceAero exists to keep the full record: what I bought, what I built, what the numbers showed, and what I will change next.
+
+**Long-term plan**
+
+- **Year 1:** Reliable data logging and progress toward NAR Level 1 and Level 2 certification
+- **Year 2:** A larger scratch-built rocket with a recoverable payload
+- **Competitions:** The American Rocketry Challenge and NASA TechRise with the local CENJARS club
+
+Starship Flight 15 showed what careful measurement can achieve at the highest level. SpaceAero is my attempt to apply the same approach at the high-school level: fly, measure, learn, and share the results.
