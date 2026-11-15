@@ -80,7 +80,7 @@
 
   /* Single article page */
   .topbar{padding:22px 0;border-bottom:1px solid var(--line)}
-  .topbar a.brand{font-weight:700;font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+  .topbar a.brand{font-weight:700;font-size:20px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
   .topbar a.brand:hover{text-decoration:none}
   .topbar nav{float:right;font-size:14px;padding-top:4px}
   .topbar nav a{margin-left:22px;color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
