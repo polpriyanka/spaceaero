@@ -101,7 +101,7 @@ Most student rocket projects only show the successful launches. The useful infor
 
 **Long-term plan**
 
-- **Year 1:** Reliable data logging and progress toward NAR Level 1 and Level 2 certification
+- **Year 1:** Reliable data logging and building experience, with NAR certification as a longer-term goal
 - **Year 2:** A larger scratch-built rocket with a recoverable payload
 - **Competitions:** The American Rocketry Challenge and NASA TechRise with the local CENJARS club
 
