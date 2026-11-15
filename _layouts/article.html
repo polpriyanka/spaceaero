@@ -24,7 +24,7 @@
       <div class="body">
         {{ content }}
       </div>
-      <a class="back" href="{{ '/#articles' | relative_url }}">← All articles</a>
+      {% if page.url contains '/logs/' %}<a class="back" href="{{ '/#logs' | relative_url }}">← All build logs</a>{% else %}<a class="back" href="{{ '/#articles' | relative_url }}">← All articles</a>{% endif %}
     </article>
   </main>
   <footer>
