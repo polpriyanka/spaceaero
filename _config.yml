@@ -3,6 +3,7 @@ description: Ron's rocketry project. Build logs, flight data, and articles.
 url: "https://spaceaero.org"
 permalink: /articles/:title/
 markdown: kramdown
+future: true
 collections:
   logs:
     output: true
